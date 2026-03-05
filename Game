@@ -34,23 +34,23 @@ public class Game {
 
             int effect = player.useSkill(choice, enemy);
 
-            if (effect < 0)
+            if (effect < 0) {
                 player.heal(-effect);
-            else
+            } else {
                 enemy.takeDamage(effect);
-
-            if (!enemy.isAlive())
+            }
+            if (!enemy.isAlive()) {
                 break;
-
+            }
             int enemySkill = 1;
-
             int eEffect = enemy.useSkill(enemySkill, player);
-
-            if (eEffect < 0)
+            
+            if (eEffect < 0) {
                 enemy.heal(-eEffect);
-            else
+            } else {
                 player.takeDamage(eEffect);
-        }
+                }
+            }
 
         if (player.isAlive()) {
         System.out.println(ds.line1());
