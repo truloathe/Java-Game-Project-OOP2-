@@ -1,0 +1,14 @@
+public class DamageSkill extends Skill {
+
+    public DamageSkill(String name, String desc, int min, int max) {
+        super(name, desc, min, max);
+    }
+
+    public int execute(Character attacker, Character target) {
+
+        int dmg = roll();
+        System.out.println(attacker.getName() + " used " + getName());
+
+        return dmg;
+    }
+}
