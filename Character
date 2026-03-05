@@ -38,6 +38,7 @@ public abstract class Character {
     public void heal(int amount) {
         hp += amount;
         System.out.println(name + " healed!");
+        System.out.println(ds.line3());
     }
 
     public void addSkill(Skill skill) {
