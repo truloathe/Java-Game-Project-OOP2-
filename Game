@@ -5,6 +5,8 @@ public class Game {
     private Character player;
     private Character enemy;
     private Scanner scan = new Scanner(System.in);
+    Design ds = new Design();
+    
 
     public Game(Character player, Character enemy) {
         this.player = player;
@@ -13,17 +15,22 @@ public class Game {
 
     public void start() {
 
-        System.out.println("\n===== BATTLE START =====");
+        System.out.println(ds.getBattleIntro());
+        System.out.println(ds.line1());
 
         while (player.isAlive() && enemy.isAlive()) {
 
             System.out.println("\nPlayer HP: " + player.getHp());
             System.out.println("Enemy HP: " + enemy.getHp());
+            System.out.println(ds.line2());
 
             System.out.println("\nChoose skill:");
             player.displaySkills();
-
+            System.out.println(ds.line1());
+            
+            System.out.print("Input Choice: ");
             int choice = scan.nextInt();
+            System.out.println(ds.line1());
 
             int effect = player.useSkill(choice, enemy);
 
@@ -45,9 +52,14 @@ public class Game {
                 player.takeDamage(eEffect);
         }
 
-        if (player.isAlive())
+        if (player.isAlive()) {
+        System.out.println(ds.line1());
+        System.out.println(ds.endOfBattle());
             System.out.println("\nYOU WIN!");
-        else
+        } else {
+        System.out.println(ds.line1());
+            System.out.println(ds.endOfBattle());
             System.out.println("\nYOU LOSE!");
+        }
     }
 }
