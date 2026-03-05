@@ -7,6 +7,7 @@ public abstract class Character {
     private int hp;
     private int atk;
     private int def;
+    Design ds = new Design();
 
     private List<Skill> skills = new ArrayList<>();
 
@@ -17,8 +18,12 @@ public abstract class Character {
         this.def = def;
     }
 
-    public String getName() { return name; }
-    public int getHp() { return hp; }
+    public String getName() {
+        return name; 
+    }
+    public int getHp() {
+        return hp; 
+    }
 
     public boolean isAlive() {
         return hp > 0;
@@ -27,6 +32,7 @@ public abstract class Character {
     public void takeDamage(int damage) {
         hp -= Math.max(1, damage - def / 5);
         System.out.println(name + " took damage!");
+        System.out.println(ds.line3());
     }
 
     public void heal(int amount) {
