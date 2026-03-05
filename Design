@@ -1,0 +1,7 @@
+public class Design {
+
+    public String title() {
+        return
+        "\n===== HERO BATTLE GAME =====\n";
+    }
+}
