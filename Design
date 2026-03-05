@@ -15,6 +15,11 @@ class Design {
         "\n---------------------------------------------------";
     }
     
+    public String line3() {
+        return
+        "################################";
+    }
+    
     public String defeatedPose() {
         return
                 "\n" +
