@@ -1,0 +1,13 @@
+public class Hero extends Character {
+
+    private String backstory;
+
+    public Hero(String name, int hp, int atk, int def, String story) {
+        super(name, hp, atk, def);
+        this.backstory = story;
+    }
+
+    public String getBackstory() {
+        return backstory;
+    }
+}
