@@ -1,0 +1,17 @@
+public class HeroFactory {
+
+    public static Hero[] createHeroes() {
+
+        Backstory bs = new Backstory();
+
+        Hero h1 = new Hero("Kent", 120, 40, 30, bs.kent());
+        h1.addSkill(new DamageSkill("Punch", "Strong punch", 10, 20));
+        h1.addSkill(new HealSkill("Recover", "Heal HP", 10, 15));
+
+        Hero h2 = new Hero("Kazt", 100, 50, 20, bs.kazt());
+        h2.addSkill(new DamageSkill("Slash", "Quick slash", 15, 25));
+        h2.addSkill(new HealSkill("Focus", "Heal HP", 8, 12));
+
+        return new Hero[]{h1, h2};
+    }
+}
