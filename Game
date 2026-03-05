@@ -1,0 +1,53 @@
+import java.util.Scanner;
+
+public class Game {
+
+    private Character player;
+    private Character enemy;
+    private Scanner scan = new Scanner(System.in);
+
+    public Game(Character player, Character enemy) {
+        this.player = player;
+        this.enemy = enemy;
+    }
+
+    public void start() {
+
+        System.out.println("\n===== BATTLE START =====");
+
+        while (player.isAlive() && enemy.isAlive()) {
+
+            System.out.println("\nPlayer HP: " + player.getHp());
+            System.out.println("Enemy HP: " + enemy.getHp());
+
+            System.out.println("\nChoose skill:");
+            player.displaySkills();
+
+            int choice = scan.nextInt();
+
+            int effect = player.useSkill(choice, enemy);
+
+            if (effect < 0)
+                player.heal(-effect);
+            else
+                enemy.takeDamage(effect);
+
+            if (!enemy.isAlive())
+                break;
+
+            int enemySkill = 1;
+
+            int eEffect = enemy.useSkill(enemySkill, player);
+
+            if (eEffect < 0)
+                enemy.heal(-eEffect);
+            else
+                player.takeDamage(eEffect);
+        }
+
+        if (player.isAlive())
+            System.out.println("\nYOU WIN!");
+        else
+            System.out.println("\nYOU LOSE!");
+    }
+}
