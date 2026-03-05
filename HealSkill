@@ -1,0 +1,14 @@
+public class HealSkill extends Skill {
+
+    public HealSkill(String name, String desc, int min, int max) {
+        super(name, desc, min, max);
+    }
+
+    public int execute(Character attacker, Character target) {
+
+        int heal = roll();
+        System.out.println(attacker.getName() + " used " + getName());
+
+        return -heal;
+    }
+}
