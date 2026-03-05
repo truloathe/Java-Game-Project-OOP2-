@@ -1,0 +1,10 @@
+public class Backstory {
+
+    public String kent() {
+        return "Kent is a fearless street fighter.";
+    }
+
+    public String kazt() {
+        return "Kazt is a fast assassin.";
+    }
+}
