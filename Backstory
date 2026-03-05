@@ -1,10 +1,10 @@
-public class Backstory {
+class Backstory {
 
-    public String kent() {
-        return "Kent is a fearless street fighter.";
+    public String MissionFeld() {
+        return "HERO BACKGROUND: MissionFeld is a fearless street fighter.";
     }
 
-    public String kazt() {
-        return "Kazt is a fast assassin.";
+    public String TheHighestIQ() {
+        return "HERO BACKGROUND: TheHighestIQ is a fast assassin.";
     }
 }
