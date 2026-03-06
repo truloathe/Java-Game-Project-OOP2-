@@ -1,10 +1,14 @@
 class Backstory {
 
     public String MissionFeld() {
-        return "HERO BACKGROUND: MissionFeld is a fearless street fighter.";
+        return "HERO BACKGROUND: Born in the unforgiving underground arenas, MissionFeld is a fearless street fighter. " +
+               "He forged his iron fists in countless brawls, fighting not for glory, but to protect the defenseless. " +
+               "With raw, untamed power and an unbreakable will, his punches hit like a freight train!";
     }
 
     public String TheHighestIQ() {
-        return "HERO BACKGROUND: TheHighestIQ is a fast assassin.";
+        return "HERO BACKGROUND: A phantom in the shadows with a mind like a supercomputer, TheHighestIQ is a blindingly fast assassin. " +
+               "He doesn't just rely on his speed; he calculates his opponent's every move before they even twitch. " +
+               "To fight him is to play a deadly game of chess where checkmate happens in the blink of an eye.";
     }
 }
