@@ -38,9 +38,6 @@ public class Game {
         System.out.println(ds.getBattleIntro());
         System.out.println(ds.line1());
 
-        System.out.println(enemy.getBackstory());
-        System.out.println(ds.line1());
-
         while (player.isAlive() && enemy.isAlive()) {
 
             showStatus();
