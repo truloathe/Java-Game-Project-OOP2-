@@ -59,5 +59,9 @@ public abstract class Character {
         return skills.get(index - 1).execute(this, target);
     }
 
+    public String getSkillName(int index) {
+        return skills.get(index - 1).getName();
+    }
+
     public abstract String getBackstory();
 }
