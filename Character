@@ -32,13 +32,11 @@ public abstract class Character {
     public void takeDamage(int damage) {
         hp -= Math.max(1, damage - def / 5);
         System.out.println(name + " took damage!");
-        // System.out.println(ds.line3());
     }
 
     public void heal(int amount) {
         hp += amount;
         System.out.println(name + " healed!");
-        // System.out.println(ds.line3());
     }
 
     public void addSkill(Skill skill) {
