@@ -99,9 +99,10 @@ public class Game {
         System.out.println(ds.endOfBattle());
 
         if (player.isAlive()) {
-            System.out.println("\nYOU WIN!");
+            System.out.println(ds.youWin());
         } else {
-            System.out.println("\nYOU LOSE!");
+            System.out.println(ds.youLose());
+            System.out.println(ds.defeatedPose());
         }
     }
 }
