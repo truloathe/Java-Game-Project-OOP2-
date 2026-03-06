@@ -21,7 +21,13 @@ public abstract class Skill {
     }
 
     protected int roll() {
-        return rand.nextInt(max - min + 1) + min;
+        int base = rand.nextInt(max - min + 1) + min;
+
+        if (rand.nextInt(100) < 15) {
+            System.out.println("Critical Hit!");
+            base *= 2;
+        }
+        return base;
     }
 
     public abstract int execute(Character attacker, Character target);
