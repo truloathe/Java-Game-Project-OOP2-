@@ -7,7 +7,6 @@ public class Hero extends Character {
         this.backstory = story;
     }
 
-    public String getBackstory() {
-        return backstory;
-    }
+    @Override
+    public String getBackstory() { return backstory; }
 }
