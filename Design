@@ -1,4 +1,4 @@
-class Design {
+public class Design {
 
     public String title() {
         return
@@ -36,6 +36,11 @@ class Design {
     public String line3() {
         return
                 "################################";
+    }
+    
+    public String line4() {
+        return
+                "-----------------------------------------------------------------------------------";
     }
 
     public String defeatedPose() {
