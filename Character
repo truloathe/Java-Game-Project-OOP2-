@@ -19,10 +19,10 @@ public abstract class Character {
     }
 
     public String getName() {
-        return name; 
+        return name;
     }
     public int getHp() {
-        return hp; 
+        return hp;
     }
 
     public boolean isAlive() {
@@ -49,6 +49,10 @@ public abstract class Character {
         for (int i = 0; i < skills.size(); i++) {
             System.out.println((i + 1) + ". " + skills.get(i).getName());
         }
+    }
+
+    public int getSkillCount() {
+        return skills.size();
     }
 
     public int useSkill(int index, Character target) {
