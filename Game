@@ -29,6 +29,8 @@ public class Game {
             System.out.println(msg);
         }
         System.out.println("-----------------\n");
+
+        battleLog.clear();
     }
 
     public void start() {
