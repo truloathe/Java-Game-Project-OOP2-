@@ -6,6 +6,8 @@ public class Enemy extends Character {
     }
 
     public String getBackstory() {
-        return "Marco, the monarch of destruction...";
+        return "ENEMY BACKGROUND: Marco, the Monarch of Destruction. " +
+               "A walking cataclysm whose mere presence suffocates the battlefield. " +
+               "He doesn't just defeat his challengers—he erases their hope before the fight even begins.";
     }
 }
