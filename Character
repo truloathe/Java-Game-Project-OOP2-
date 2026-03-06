@@ -5,61 +5,54 @@ public abstract class Character {
 
     private String name;
     private int hp;
+    private int maxHp;
     private int atk;
     private int def;
-    Design ds = new Design();
-
     private List<Skill> skills = new ArrayList<>();
 
     public Character(String name, int hp, int atk, int def) {
         this.name = name;
         this.hp = hp;
+        this.maxHp = hp; // to track max hp
         this.atk = atk;
         this.def = def;
     }
 
-    public String getName() {
-        return name;
-    }
-    public int getHp() {
-        return hp;
-    }
+    public String getName() { return name; }
+    public int getHp() { return hp; }
+    public int getAtk() { return atk; }
 
-    public boolean isAlive() {
-        return hp > 0;
-    }
+    public boolean isAlive() { return hp > 0; }
 
     public void takeDamage(int damage) {
-        hp -= Math.max(1, damage - def / 5);
-        System.out.println(name + " took damage!");
+        int actualDamage = Math.max(1, damage - def / 5);
+        hp -= actualDamage;
+        System.out.println(name + " took " + actualDamage + " damage!");
+        if (hp < 0) hp = 0;
     }
 
     public void heal(int amount) {
-        hp += amount;
-        System.out.println(name + " healed!");
+        int healed = Math.min(amount, maxHp - hp);
+        hp += healed;
+        System.out.println(name + " healed " + healed + " HP!");
     }
 
-    public void addSkill(Skill skill) {
-        skills.add(skill);
-    }
+    public void addSkill(Skill skill) { skills.add(skill); }
 
     public void displaySkills() {
         for (int i = 0; i < skills.size(); i++) {
-            System.out.println((i + 1) + ". " + skills.get(i).getName());
+            System.out.println((i + 1) + ". " + skills.get(i).getName() + " - " + skills.get(i).getDescription());
         }
     }
 
-    public int getSkillCount() {
-        return skills.size();
-    }
+    public int getSkillCount() { return skills.size(); }
 
     public int useSkill(int index, Character target) {
-        return skills.get(index - 1).execute(this, target);
+        Skill skill = skills.get(index - 1);
+        return skill.execute(this, target);
     }
 
-    public String getSkillName(int index) {
-        return skills.get(index - 1).getName();
-    }
+    public String getSkillName(int index) { return skills.get(index - 1).getName(); }
 
     public abstract String getBackstory();
 }
