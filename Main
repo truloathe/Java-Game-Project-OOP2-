@@ -5,19 +5,46 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner scan = new Scanner(System.in);
+        Design ds = new Design();
 
         while (true) {
 
             GameManager manager = new GameManager();
             manager.start();
 
-            System.out.println("\nPlay again? (Y/N)");
-            String choice = scan.next();
+            int choice = -1;
+            while (true) {
+                System.out.println("What would you like to do next?");
+                System.out.println("1. Play Again (Choose a new hero)");
+                System.out.println("2. Quit Game");
+                System.out.println(ds.line1());
 
-            if (!choice.equalsIgnoreCase("Y")) {
-                System.out.println("Thanks for playing!");
+                System.out.print("Enter choice [1 - 2]: ");
+
+                if (scan.hasNextInt()) {
+                    choice = scan.nextInt();
+
+                    if (choice == 1 || choice == 2) {
+                        break;
+                    } else {
+                        System.out.println("\nInvalid selection. Please choose 1 or 2.\n");
+                    }
+
+                } else {
+                    System.out.println("\nInvalid input. Please enter a NUMBER.\n");
+                    scan.next();
+                }
+            }
+
+            if (choice == 2) {
+                System.out.println(ds.line1());
+                System.out.println("Thanks for playing! Goodbye!");
                 break;
             }
+
+            System.out.println("\nRestarting game...\n");
         }
+
+        scan.close();
     }
 }
