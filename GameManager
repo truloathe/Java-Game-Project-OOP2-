@@ -7,55 +7,56 @@ public class GameManager {
     Design ds = new Design();
 
     public void start() {
-
+        
         System.out.println(design.title());
-
+        
         Hero[] heroes = HeroFactory.createHeroes();
-
+        
         int choice = -1;
-
+        
         while (true) {
-
+            
             System.out.println("Choose your hero:");
-
+            
             for (int i = 0; i < heroes.length; i++) {
                 System.out.println((i + 1) + ". " + heroes[i].getName());
             }
-
+            
             System.out.print("Enter choice [1 - " + heroes.length + "]: ");
-
+            
             if (scan.hasNextInt()) {
-
                 choice = scan.nextInt() - 1;
-
+                
                 if (choice >= 0 && choice < heroes.length) {
                     break;
                 } else {
-                    System.out.println("\nInvalid number. Please choose between 1 and " + heroes.length + ".\n");
+                    System.out.println(ds.line2());
+                    System.out.println("\nInvalid number. Please choose between 1 and " + heroes.length + ".");
+                    System.out.println(ds.line2());
                 }
-
+                
             } else {
-
-                System.out.println("\nInvalid input. Please enter a NUMBER.\n");
+                System.out.println(ds.line2());
+                System.out.println("\nInvalid input. Please enter a NUMBER between 1 and "+ heroes.length +".");
+                System.out.println(ds.line2());
                 scan.next(); 
             }
         }
-
+        
         System.out.println(ds.line1());
-
+        
         Hero player = heroes[choice];
-
+        
         Enemy enemy = new Enemy("Enemy Bot", 120, 35, 25);
-
+        
         System.out.println("HERO SELECTED: " + player.getName());
         System.out.println(player.getBackstory());
         System.out.println(ds.line1());
-
         System.out.println("AN ENEMY APPEARS!");
         System.out.println("Enemy: " + enemy.getName());
         System.out.println(enemy.getBackstory());
         System.out.println(ds.line1());
-
+        
         Game game = new Game(player, enemy);
         game.start();
     }
