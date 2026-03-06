@@ -16,53 +16,53 @@ public class Game {
     }
 
     private void showStatus() {
-        System.out.println("\n========================");
-        System.out.println("BATTLE STATUS");
-        System.out.println(player.getName() + " HP: " + player.getHp());
+        System.out.println("BATTLE STATUS:");
+        System.out.println("Player (" +player.getName() + ") HP: " + player.getHp());
         System.out.println(enemy.getName() + " HP: " + enemy.getHp());
-        System.out.println("========================\n");
     }
 
     private void printBattleLog() {
-        System.out.println("\n--- Battle Log ---");
+        System.out.println("\n-------------------------- Battle Log --------------------------");
         for (String msg : battleLog) {
             System.out.println(msg);
         }
-        System.out.println("-----------------\n");
-
+        System.out.println("----------------------------------------------------------------\n");
         battleLog.clear();
     }
 
     public void start() {
-
+        
         System.out.println(ds.getBattleIntro());
         System.out.println(ds.line1());
-
+        
         while (player.isAlive() && enemy.isAlive()) {
-
+            
             showStatus();
-
+            
             int choice = -1;
             while (true) {
                 System.out.println("Choose skill:");
                 player.displaySkills();
                 System.out.println(ds.line1());
-
-                System.out.print("Input Choice: ");
+                
+                System.out.print("Input Choice [1 - 2]: ");
                 if (scan.hasNextInt()) {
                     choice = scan.nextInt();
                     if (choice >= 1 && choice <= player.getSkillCount()) {
                         System.out.println(ds.line1());
                         break;
                     } else {
-                        System.out.println("\nInvalid input. Please choose again.");
+                        System.out.println(ds.line4());
+                        System.out.println("Invalid input. Please choose again.");
+                        System.out.println(ds.line4());
                     }
                 } else {
-                    System.out.println("\nInvalid input. Please choose again.");
+                    System.out.println(ds.line4());
+                    System.out.println("Invalid input. Please choose again between numbered options 1 or 2.");
+                    System.out.println(ds.line4());
                     scan.next();
                 }
             }
-
             int effect = player.useSkill(choice, enemy);
             if (effect < 0) {
                 player.heal(-effect);
@@ -71,16 +71,14 @@ public class Game {
                 enemy.takeDamage(effect);
                 battleLog.add(player.getName() + " used " + player.getSkillName(choice) + " and dealt " + effect + " damage!");
             }
-
             printBattleLog();
-
+            
             if (!enemy.isAlive()) {
                 break;
             }
-
             int enemySkill = 1;
             int eEffect = enemy.useSkill(enemySkill, player);
-
+            
             if (eEffect < 0) {
                 enemy.heal(-eEffect);
                 battleLog.add(enemy.getName() + " used " + enemy.getSkillName(enemySkill) + " and healed " + (-eEffect) + " HP!");
@@ -88,16 +86,17 @@ public class Game {
                 player.takeDamage(eEffect);
                 battleLog.add(enemy.getName() + " used " + enemy.getSkillName(enemySkill) + " and dealt " + eEffect + " damage!");
             }
-
+            
             printBattleLog();
         }
-
+        
         System.out.println(ds.line1());
         System.out.println(ds.endOfBattle());
-
         if (player.isAlive()) {
+            System.out.println(ds.line4());
             System.out.println(ds.youWin());
         } else {
+            System.out.println(ds.line4());
             System.out.println(ds.youLose());
             System.out.println(ds.defeatedPose());
         }
