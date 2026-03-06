@@ -2,9 +2,12 @@ public class Enemy extends Character {
 
     public Enemy(String name, int hp, int atk, int def) {
         super(name, hp, atk, def);
-        addSkill(new DamageSkill("Basic attack", "Precision Strike", 18, 32));
+        addSkill(new DamageSkill("Basic Strike", "Simple precise attack", 18, 32));
+        addSkill(new DamageSkill("Heavy Slam", "Powerful but slower attack", 20, 28));
+        addSkill(new HealSkill("Dark Recovery", "Heals self with dark energy", 10, 18));
     }
 
+    @Override
     public String getBackstory() {
         return "ENEMY BACKGROUND: Marco, the Monarch of Destruction. " +
                "A walking cataclysm whose mere presence suffocates the battlefield. " +
