@@ -9,18 +9,14 @@ public class HealSkill extends Skill {
     @Override
     public int execute(Character attacker, Character target) {
         int heal = roll();
-
         boolean isCrit = (Math.random() * 100) < critChance;
 
         System.out.println("\n>>> " + attacker.getName() + " used " + getName() + "!");
-
         if (isCrit) {
-            heal = (int) (heal * 1.5); 
+            heal = (int) (heal * 1.5);
             System.out.println("✨ CRITICAL HEAL! The light of recovery shines brilliantly! ✨");
         }
-
         System.out.println("💚 " + attacker.getName() + " recovered " + heal + " HP!");
-
         return -heal;
     }
 }
