@@ -32,7 +32,7 @@ public class GameManager {
         System.out.println(ds.line1());
         Hero player = heroes[choice];
 
-        Enemy enemy = new Enemy("Marco", 120, 35, 25);
+        Enemy enemy = new Enemy("Marco", 220, 35, 25);
 
         System.out.println("HERO SELECTED: " + player.getName());
         System.out.println(player.getBackstory());
